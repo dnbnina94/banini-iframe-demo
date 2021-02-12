@@ -28,10 +28,10 @@
             const breakpoint = 600;
 
             const resize = (iframe) => {
-                // const width = iframe.clientWidth;
-                // iframe.setAttribute("height", (width >= breakpoint) ? width*ratio : width/ratio);
-                console.log(iframe.contentWindow.document.body.scrollHeight);
-                iframe.style.height = iframe.contentWindow.document.body.scrollHeight
+                const width = iframe.clientWidth;
+                iframe.setAttribute("height", (width >= breakpoint) ? width*ratio : width/ratio);
+                
+                // iframe.style.height = iframe.contentWindow.document.body.scrollHeight
             }
 
             window.addEventListener('load', (event) => {
