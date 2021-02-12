@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            * {
+                margin: 0;
+            }
+
+            body {
+                background-color: #EED202;
+            }
+
+            .iframe-wrapper {
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            #myIframe {
+                border: none;
+            }
+        </style>
+
+        <script>
+            const ratio = 0.5625;
+            const breakpoint = 600;
+
+            const resize = (iframe) => {
+                // const width = iframe.clientWidth;
+                // iframe.setAttribute("height", (width >= breakpoint) ? width*ratio : width/ratio);
+                console.log(iframe.contentWindow.document.body.scrollHeight);
+                iframe.style.height = iframe.contentWindow.document.body.scrollHeight
+            }
+
+            window.addEventListener('load', (event) => {
+                const iframe = document.getElementById("myIframe");
+
+                window.addEventListener('resize', () => {
+                    resize(iframe);
+                });
+            
+                resize(iframe);
+            });
+        </script>
+    </head>
+    <body>
+        <div class="iframe-wrapper">
+            <iframe id="myIframe" width="100%" src="https://trik-memorija.herokuapp.com/" />
+        </div>
+    </body>
+</html>
